@@ -45,6 +45,7 @@ class Product(models.Model):
                 return self.thumbnail.url
             else:
                 return 'https://via.placeholder.com/240x180.jpg'
+                
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='uploads/', blank=True, null=True)

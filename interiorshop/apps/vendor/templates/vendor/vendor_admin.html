@@ -5,7 +5,9 @@
   <a href="{% url 'logout' %}" class="button is-danger is-uppercase">Log out</a>
 </div>
 <div class="box">
-  <h2 class="is-size-3 mb-4">My products</h2>
+  <h2 class="is-size-3 mb-4">Meus Productos</h2>
+
+  <a href="{% url 'add_product' %}" class="button is-dark is-uppercase mb-6">Add Product</a>
 
   {% if products %}
   <table class="table is-fullwidth">
@@ -14,7 +16,7 @@
         <th>Title</th>
         <th>Price</th>
         <th>Actions</th>
-      </tr>
+      </tr> 
     </thead>
 
     <tbody>
