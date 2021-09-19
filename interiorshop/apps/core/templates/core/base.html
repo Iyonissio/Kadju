@@ -37,8 +37,7 @@
       <div class="navbar-menu" id="main-navbar">
         <div class="navbar-start">
           <div class="navbar-item">
-           
-            <form method="get" action="">
+            <form method="get" action="{% url 'search' %}">
               <div class="field has-addons">
                 <div class="control">
                   <input
@@ -57,6 +56,9 @@
         </div>
        
             <div class="navbar-end">
+              {% for category in menu_categories %}
+                 <a href="{% url 'category' category.slug %}" class="navbar-item">{{ category.title }}</a>
+              {% endfor %}
                 <a href="{% url 'contact' %}" class="navbar-item">Contacte</a>
             </div>
         
@@ -75,9 +77,9 @@
         <h3 class="is-size-4 mb-4">Kadju shop</h3>
 
         {% if request.user.is_authenticated %}
-              <a href="{% url 'vendor_admin' %}">Vendor admin</a>
+              <a href="{% url 'vendor_admin' %}">Tela do Vendedor</a>
         {% else %}
-              <a href="{% url 'become_vendor' %}">Become vendor</a>
+              <a href="{% url 'become_vendor' %}">Seja um Vendedor</a>
         {% endif %}
     </footer>
 

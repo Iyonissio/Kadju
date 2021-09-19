@@ -2,19 +2,19 @@
 {% block content %}
 <div class="box">
   <h1 class="title">Vendor admin - {{ vendor.name }}</h1>
-  <a href="{% url 'logout' %}" class="button is-danger is-uppercase">Log out</a>
+  <a href="{% url 'logout' %}" class="button is-danger is-uppercase">Sair</a>
 </div>
 <div class="box">
   <h2 class="is-size-3 mb-4">Meus Productos</h2>
 
-  <a href="{% url 'add_product' %}" class="button is-dark is-uppercase mb-6">Add Product</a>
+  <a href="{% url 'add_product' %}" class="button is-dark is-uppercase mb-6">Add Producto</a>
 
   {% if products %}
   <table class="table is-fullwidth">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Price</th>
+        <th>Nome do Producto</th>
+        <th>Preco</th>
        <!-- <th>Actions</th> --> 
       </tr> 
     </thead>
@@ -22,7 +22,7 @@
     <tbody>
       {% for product in products %}
       <tr>
-          <td>{{ product.title}}</td>
+        <td><a href="{% url 'product' product.category.slug product.slug %}">{{ product.title }}</a></td>
           <td>{{ product.price}} MT</td>
       </tr>
       {% endfor %}
