@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Vendor
 from apps.product.models import Product, ProductImage
 
-from .forms import ProductForm
+from .forms import ProductForm, ProductImageForm
 
 
 def become_vendor(request):
@@ -27,12 +27,12 @@ def become_vendor(request):
 
     return render(request, 'vendor/become_vendor.html', {'form': form})
 
+
 @login_required
 def vendor_admin(request):
     vendor = request.user.vendor
     products = vendor.products.all()
-
-    return render(request, 'vendor/vendor_admin.html', {'vendor': vendor,'products': products})
+    return render(request, 'vendor/vendor_admin.html', {'vendor': vendor, 'products': products})
 
 
 @login_required
@@ -49,5 +49,5 @@ def add_product(request):
             return redirect('vendor_admin')
     else:
         form = ProductForm()
-    
+
     return render(request, 'vendor/add_product.html', {'form': form})
