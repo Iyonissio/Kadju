@@ -20,13 +20,14 @@
 
     <div class="columns is-multiline">
         <div class="column is-12">
-            <h2 class="subtitle">Similar products</h2>
+            <h2 class="subtitle">Productos Similares</h2>
         </div>
-        
+
         {% for product in similar_products %}
              {% include 'product/parts/list_item.html' %}
         {% endfor %}
     </div>
+    {% endif %}
 {% endif %}
 
 
