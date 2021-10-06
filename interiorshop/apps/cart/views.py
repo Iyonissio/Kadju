@@ -7,5 +7,3 @@ from .cart import Cart
 def cart_detail(request):
     return render(request, 'cart/cart.html')
 
-def success(request):
-    return render(request, 'cart/success.html')
